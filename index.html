@@ -698,9 +698,17 @@ function handleLogin() {
   const dateStr = new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
   const firstName = emp.name.split(' ')[0];
 
-  if (emp.type === 'Hourly') {
+  if (emp.type === 'hourly') {
     document.getElementById('hWelcomeName').textContent = 'Hi, ' + firstName + '!';
     document.getElementById('hWelcomeDate').textContent = dateStr;
+    // Show both time clock and PTO tab
+    document.getElementById('tabPTO').style.display = '';
+    showScreen('hourlyScreen');
+  } else if (emp.type === 'prn') {
+    document.getElementById('hWelcomeName').textContent = 'Hi, ' + firstName + '!';
+    document.getElementById('hWelcomeDate').textContent = dateStr;
+    // PRN: time clock only, no PTO tab
+    document.getElementById('tabPTO').style.display = 'none';
     showScreen('hourlyScreen');
   } else {
     document.getElementById('sWelcomeName').textContent = 'Hi, ' + firstName + '!';
