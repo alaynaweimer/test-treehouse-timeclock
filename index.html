@@ -557,27 +557,37 @@ document.addEventListener('DOMContentLoaded', () => {
 async function loadEmployees() {
   const select = document.getElementById('employeeSelect');
 
-  try {
-    // Use JSONP to avoid CORS issues with local file
-    const data = await fetchJSONP(`${APPS_SCRIPT_URL}?action=get_employees&type=all`);
-    if (data.status === 'success') {
-      employees = data.employees;
-      populateEmployeeSelect();
-    } else {
-      throw new Error(data.message || 'Failed to load');
+  // Hardcoded employees — matches Employee Master tab
+  // UPDATE THESE when employees change
+  const hardcodedEmployees = [
+    { name: 'Julie Earnest', pin: '1234', type: 'hourly', email: 'julie@treehousetherapies.com' },
+    { name: 'Hailey Voss', pin: '5678', type: 'hourly', email: 'hailey@treehousetherapies.com' },
+    { name: 'Stacey Briscoe', pin: '9123', type: 'salaried', email: 'stacey@treehousetherapies.com' },
+    { name: 'Shannon Redden', pin: '4567', type: 'salaried', email: 'Shannon@treehousetherapies.com' },
+    { name: 'Shawn Diez', pin: '8912', type: 'salaried', email: 'shawn@treehousetherapies.com' },
+    { name: 'Isabel Arreola', pin: '3456', type: 'hourly', email: 'isabel@treehousetherapies.com' },
+    { name: 'Courtney Coleman', pin: '7891', type: 'prn', email: 'courtney@treehousetherapies.com' },
+    { name: 'Jennifer Widder', pin: '2345', type: 'prn', email: 'jennifer@treehousetherapies.com' },
+  ];
+
+  // Try to load from Apps Script first, fall back to hardcoded
+  if (APPS_SCRIPT_URL && APPS_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+    try {
+      const data = await fetchJSONP(`${APPS_SCRIPT_URL}?action=get_employees&type=all`);
+      if (data.status === 'success' && data.employees && data.employees.length > 0) {
+        employees = data.employees;
+        populateEmployeeSelect();
+        console.log('Loaded employees from Apps Script');
+        return;
+      }
+    } catch (e) {
+      console.log('Apps Script unavailable, using hardcoded employees');
     }
-  } catch (e) {
-    console.error('Failed to load employees:', e);
-    // Fallback to demo employees
-    employees = [
-      { name: 'Hailey Voss', pin: '1234', type: 'Hourly', email: '' },
-      { name: 'Shannon Redden', pin: '5678', type: 'Salaried', email: '' },
-      { name: 'Stacey', pin: '9012', type: 'Salaried', email: '' },
-      { name: 'Shawn', pin: '3456', type: 'Salaried', email: '' },
-    ];
-    populateEmployeeSelect();
-    console.log('Using demo employees — Apps Script connection may need setup');
   }
+
+  // Use hardcoded employees
+  employees = hardcodedEmployees;
+  populateEmployeeSelect();
 }
 
 // JSONP fetch helper — works from local files and cross-origin
