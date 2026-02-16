@@ -11,8 +11,6 @@
     --green-mid: #4A8B5C;
     --green-light: #7BC47F;
     --green-pale: #E8F5E9;
-    --bark: #5D4037;
-    --bark-light: #8D6E63;
     --cream: #FFF8F0;
     --cream-dark: #F5EDE3;
     --coral: #E57373;
@@ -21,16 +19,11 @@
     --amber-dark: #F57C00;
     --sky: #4FC3F7;
     --sky-dark: #0288D1;
-    --purple: #BA68C8;
-    --purple-dark: #7B1FA2;
     --text: #3E2723;
     --text-light: #6D4C41;
     --shadow: rgba(45, 90, 61, 0.12);
-    --radius: 16px;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     font-family: 'Nunito', sans-serif;
     background: var(--cream);
@@ -40,299 +33,79 @@
     flex-direction: column;
     align-items: center;
   }
-
   .header {
     width: 100%;
     background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 100%);
-    padding: 24px 20px 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .header::before {
-    content: '';
-    position: absolute;
-    top: -30px; right: -30px;
-    width: 120px; height: 120px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.06);
-  }
-  .header h1 {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
-    font-size: 22px;
-    color: #fff;
-    letter-spacing: 0.5px;
-  }
-  .header .subtitle {
-    font-size: 13px;
-    color: rgba(255,255,255,0.75);
-    margin-top: 4px;
-    font-weight: 600;
-  }
-
-  .container {
-    width: 100%;
-    max-width: 440px;
     padding: 20px;
-    flex: 1;
+    text-align: center;
   }
-
+  .header img { width: 60px; height: 60px; border-radius: 12px; margin-bottom: 6px; }
+  .header h1 { font-family: 'Quicksand', sans-serif; font-weight: 700; font-size: 22px; color: #fff; }
+  .header .subtitle { font-size: 13px; color: rgba(255,255,255,0.75); margin-top: 4px; font-weight: 600; }
+  .container { width: 100%; max-width: 440px; padding: 20px; }
   .screen { display: none; }
   .screen.active { display: block; animation: fadeIn 0.3s ease; }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── CARDS ── */
-  .card {
-    background: #fff;
-    border-radius: var(--radius);
-    padding: 24px;
-    box-shadow: 0 4px 20px var(--shadow);
-    margin-bottom: 16px;
-  }
-  .card h2 {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--green-deep);
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  .card h3 {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text-light);
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 12px;
-  }
-
-  /* ── FORMS ── */
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .card { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 4px 20px var(--shadow); margin-bottom: 16px; }
+  .card h2 { font-family: 'Quicksand', sans-serif; font-size: 18px; font-weight: 700; color: var(--green-deep); margin-bottom: 16px; text-align: center; }
   .form-group { margin-bottom: 16px; }
-  .form-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-light);
-    margin-bottom: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
+  .form-group label { display: block; font-size: 13px; font-weight: 700; color: var(--text-light); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.8px; }
+  .form-group select, .form-group input, .form-group textarea {
+    width: 100%; padding: 14px 16px; border: 2px solid var(--cream-dark); border-radius: 12px;
+    font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 600; color: var(--text);
+    background: var(--cream); -webkit-appearance: none;
   }
-  .form-group select,
-  .form-group input,
-  .form-group textarea {
-    width: 100%;
-    padding: 14px 16px;
-    border: 2px solid var(--cream-dark);
-    border-radius: 12px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text);
-    background: var(--cream);
-    transition: border-color 0.2s;
-    -webkit-appearance: none;
-  }
-  .form-group select:focus,
-  .form-group input:focus,
-  .form-group textarea:focus {
-    outline: none;
-    border-color: var(--green-mid);
-    background: #fff;
-  }
-  .form-group textarea {
-    resize: vertical;
-    min-height: 80px;
-  }
-  .pin-input {
-    text-align: center;
-    letter-spacing: 12px;
-    font-size: 24px !important;
-  }
-
-  /* ── BUTTONS ── */
+  .form-group select:focus, .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--green-mid); background: #fff; }
+  .pin-input { text-align: center; letter-spacing: 12px; font-size: 24px !important; }
   .btn {
-    width: 100%;
-    padding: 16px;
-    border: none;
-    border-radius: 12px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    font-weight: 800;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    width: 100%; padding: 16px; border: none; border-radius: 12px;
+    font-family: 'Nunito', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer;
+    text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s;
   }
   .btn:active { transform: scale(0.97); }
-  .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-  .btn-primary { background: linear-gradient(135deg, var(--green-mid), var(--green-deep)); color: #fff; box-shadow: 0 4px 12px rgba(45,90,61,0.3); }
-  .btn-clock-in { background: linear-gradient(135deg, var(--green-light), var(--green-mid)); color: #fff; box-shadow: 0 6px 20px rgba(74,139,92,0.4); padding: 24px; font-size: 20px; border-radius: 16px; }
-  .btn-clock-out { background: linear-gradient(135deg, var(--coral), var(--coral-dark)); color: #fff; box-shadow: 0 6px 20px rgba(229,115,115,0.4); padding: 24px; font-size: 20px; border-radius: 16px; }
-  .btn-break { background: linear-gradient(135deg, var(--amber), var(--amber-dark)); color: #fff; box-shadow: 0 4px 12px rgba(255,183,77,0.4); }
-  .btn-break.on-break { background: linear-gradient(135deg, var(--sky), var(--sky-dark)); box-shadow: 0 4px 12px rgba(79,195,247,0.4); }
-  .btn-pto { background: linear-gradient(135deg, var(--purple), var(--purple-dark)); color: #fff; box-shadow: 0 4px 12px rgba(186,104,200,0.3); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-primary { background: linear-gradient(135deg, var(--green-mid), var(--green-deep)); color: #fff; }
+  .btn-clock-in { background: linear-gradient(135deg, var(--green-light), var(--green-mid)); color: #fff; padding: 24px; font-size: 20px; border-radius: 16px; }
+  .btn-clock-out { background: linear-gradient(135deg, var(--coral), var(--coral-dark)); color: #fff; padding: 24px; font-size: 20px; border-radius: 16px; }
+  .btn-break { background: linear-gradient(135deg, var(--amber), var(--amber-dark)); color: #fff; }
+  .btn-break.on-break { background: linear-gradient(135deg, var(--sky), var(--sky-dark)); }
   .btn-secondary { background: var(--cream-dark); color: var(--text-light); }
-  .btn-outline { background: transparent; border: 2px solid var(--green-mid); color: var(--green-mid); }
-
-  .btn-row { display: flex; gap: 12px; }
-  .btn-row .btn { flex: 1; }
-
   .action-stack { display: flex; flex-direction: column; gap: 12px; }
-
-  /* ── WELCOME BAR ── */
   .welcome-bar {
-    background: #fff;
-    border-radius: var(--radius);
-    padding: 16px 20px;
-    box-shadow: 0 2px 12px var(--shadow);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
+    background: #fff; border-radius: 16px; padding: 16px 20px;
+    box-shadow: 0 2px 12px var(--shadow); display: flex;
+    justify-content: space-between; align-items: center; margin-bottom: 16px;
   }
   .welcome-name { font-family: 'Quicksand', sans-serif; font-weight: 700; font-size: 16px; color: var(--green-deep); }
   .welcome-date { font-size: 13px; color: var(--text-light); font-weight: 600; }
   .logout-link { font-size: 13px; color: var(--coral); font-weight: 700; cursor: pointer; }
-
-  /* ── CLOCK ── */
   .clock-display { text-align: center; margin-bottom: 16px; }
   .current-time { font-family: 'Quicksand', sans-serif; font-size: 48px; font-weight: 700; color: var(--green-deep); line-height: 1; }
   .current-date { font-size: 14px; color: var(--text-light); font-weight: 600; margin-top: 4px; }
-
-  /* ── STATUS ── */
   .status-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; }
   .status-row:not(:last-child) { border-bottom: 1px solid var(--cream-dark); }
   .status-label { font-size: 13px; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; }
   .status-value { font-size: 15px; font-weight: 700; color: var(--green-deep); }
-  .status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+  .status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; text-transform: uppercase; }
   .badge-off { background: var(--cream-dark); color: var(--text-light); }
   .badge-clocked-in { background: #E8F5E9; color: var(--green-mid); }
   .badge-on-break { background: #FFF3E0; color: var(--amber-dark); }
-
-  /* ── CHIPS ── */
-  .category-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .chip {
-    padding: 10px 16px;
-    border-radius: 25px;
-    border: 2px solid var(--cream-dark);
-    background: var(--cream);
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text-light);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .chip.selected { border-color: var(--green-mid); background: var(--green-pale); color: var(--green-deep); }
-
-  /* ── SUMMARY ── */
-  .summary-total {
-    text-align: center;
-    padding: 20px;
-    background: var(--green-pale);
-    border-radius: 12px;
-    margin-bottom: 16px;
-  }
+  .summary-total { text-align: center; padding: 20px; background: var(--green-pale); border-radius: 12px; margin-bottom: 16px; }
   .big-number { font-family: 'Quicksand', sans-serif; font-size: 42px; font-weight: 700; color: var(--green-deep); }
   .big-label { font-size: 13px; color: var(--green-mid); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-
-  /* ── PTO BALANCES ── */
-  .balance-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 16px;
-  }
-  .balance-box {
-    background: var(--cream);
-    border-radius: 12px;
-    padding: 14px;
-    text-align: center;
-  }
-  .balance-box .bal-num { font-family: 'Quicksand', sans-serif; font-size: 28px; font-weight: 700; color: var(--green-deep); }
-  .balance-box .bal-label { font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.5px; }
-
-  /* ── NAV TABS ── */
-  .nav-tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  .nav-tab {
-    flex: 1;
-    padding: 12px;
-    border: 2px solid var(--cream-dark);
-    border-radius: 12px;
-    background: #fff;
-    font-family: 'Nunito', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text-light);
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.2s;
-  }
-  .nav-tab.active {
-    border-color: var(--green-mid);
-    background: var(--green-pale);
-    color: var(--green-deep);
-  }
-
-  /* ── GPS ── */
-  .gps-status { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--text-light); margin-top: 8px; justify-content: center; }
-  .gps-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
-  .gps-dot.locked { background: var(--green-light); }
-  .gps-dot.error { background: var(--coral); }
-
-  /* ── SUCCESS ── */
   .success-screen { text-align: center; padding: 40px 20px; }
   .success-icon { font-size: 64px; margin-bottom: 16px; }
   .success-screen h2 { font-family: 'Quicksand', sans-serif; color: var(--green-deep); font-size: 22px; margin-bottom: 8px; }
   .success-screen p { color: var(--text-light); font-size: 15px; font-weight: 600; }
-
-  /* ── TOAST ── */
   .toast {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background: var(--coral-dark);
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 14px;
-    z-index: 100;
-    transition: transform 0.3s ease;
-    text-align: center;
-    max-width: 90%;
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px);
+    background: var(--coral-dark); color: #fff; padding: 12px 24px; border-radius: 12px;
+    font-weight: 700; font-size: 14px; z-index: 100; transition: transform 0.3s ease; max-width: 90%;
   }
   .toast.show { transform: translateX(-50%) translateY(0); }
   .toast.success { background: var(--green-mid); }
-
-  .spinner {
-    display: inline-block;
-    width: 20px; height: 20px;
-    border: 3px solid rgba(255,255,255,0.3);
-    border-top-color: #fff;
-    border-radius: 50%;
-    animation: spin 0.6s linear infinite;
-    vertical-align: middle;
-    margin-right: 8px;
-  }
+  .spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 8px; }
   @keyframes spin { to { transform: rotate(360deg); } }
-
-  .loading-text {
-    text-align: center;
-    padding: 40px;
-    color: var(--text-light);
-    font-weight: 600;
-  }
 </style>
 </head>
 <body>
@@ -345,14 +118,20 @@
 
 <div class="container">
 
-  <!-- ═══ LOGIN ═══ -->
+  <!-- LOGIN -->
   <div id="loginScreen" class="screen active">
     <div class="card">
       <h2>Sign In</h2>
       <div class="form-group">
         <label>Employee</label>
         <select id="employeeSelect">
-          <option value="">Loading employees...</option>
+          <option value="">Select your name...</option>
+          <option value="0">Courtney Coleman</option>
+          <option value="1">Florence Crombecque</option>
+          <option value="2">Hailey Voss</option>
+          <option value="3">Isabel Arreola</option>
+          <option value="4">Jennifer Widder</option>
+          <option value="5">Julie Earnest</option>
         </select>
       </div>
       <div class="form-group">
@@ -360,119 +139,51 @@
         <input type="password" id="pinInput" class="pin-input" maxlength="4" placeholder="••••" inputmode="numeric" pattern="[0-9]*">
       </div>
       <button class="btn btn-primary" onclick="handleLogin()">Sign In</button>
-      <div class="gps-status" id="gpsStatus">
-        <span class="gps-dot" id="gpsDot"></span>
-        <span id="gpsText">Acquiring location...</span>
-      </div>
     </div>
   </div>
 
-  <!-- ═══ HOURLY PORTAL (Time Clock) ═══ -->
-  <div id="hourlyScreen" class="screen">
+  <!-- TIMECLOCK -->
+  <div id="clockScreen" class="screen">
     <div class="welcome-bar">
       <div>
-        <div class="welcome-name" id="hWelcomeName">—</div>
-        <div class="welcome-date" id="hWelcomeDate">—</div>
-      </div>
-      <a class="logout-link" onclick="handleLogout()">Sign Out</a>
-    </div>
-
-    <div class="nav-tabs">
-      <div class="nav-tab active" id="tabClock" onclick="showHourlyTab('clock')">⏱ Time Clock</div>
-      <div class="nav-tab" id="tabPTO" onclick="showHourlyTab('pto')">📋 Request Off</div>
-    </div>
-
-    <!-- TIME CLOCK TAB -->
-    <div id="hourlyClockTab">
-      <div class="card">
-        <div class="clock-display">
-          <div class="current-time" id="liveTime">--:--</div>
-          <div class="current-date" id="liveDate">—</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="status-row">
-          <span class="status-label">Status</span>
-          <span class="status-badge badge-off" id="statusBadge">Not Clocked In</span>
-        </div>
-        <div class="status-row">
-          <span class="status-label">Clocked In</span>
-          <span class="status-value" id="clockInTime">—</span>
-        </div>
-        <div class="status-row">
-          <span class="status-label">Break Time</span>
-          <span class="status-value" id="breakTotal">0 min</span>
-        </div>
-        <div class="status-row">
-          <span class="status-label">Hours Worked</span>
-          <span class="status-value" id="hoursWorked">0.00</span>
-        </div>
-      </div>
-
-      <div class="action-stack" id="actionButtons">
-        <button class="btn btn-clock-in" onclick="handleClockIn()">🕐 Clock In</button>
-      </div>
-    </div>
-
-    <!-- PTO REQUEST TAB (for hourly) -->
-    <div id="hourlyPTOTab" style="display:none;">
-      <div class="card" id="hPtoForm"></div>
-    </div>
-  </div>
-
-  <!-- ═══ SALARIED PORTAL (PTO Only) ═══ -->
-  <div id="salariedScreen" class="screen">
-    <div class="welcome-bar">
-      <div>
-        <div class="welcome-name" id="sWelcomeName">—</div>
-        <div class="welcome-date" id="sWelcomeDate">—</div>
+        <div class="welcome-name" id="welcomeName">—</div>
+        <div class="welcome-date" id="welcomeDate">—</div>
       </div>
       <a class="logout-link" onclick="handleLogout()">Sign Out</a>
     </div>
 
     <div class="card">
-      <h2>Your Time Off Balances</h2>
-      <div class="balance-grid" id="balanceGrid">
-        <div class="balance-box"><div class="bal-num" id="balPTO">—</div><div class="bal-label">PTO Hours Left</div></div>
-        <div class="balance-box"><div class="bal-num" id="balSick">—</div><div class="bal-label">Sick Hours Left</div></div>
+      <div class="clock-display">
+        <div class="current-time" id="liveTime">--:--</div>
+        <div class="current-date" id="liveDate">—</div>
       </div>
     </div>
 
-    <div class="card" id="sPtoForm">
-      <h2>Request Time Off</h2>
-      <div class="form-group">
-        <label>Type</label>
-        <select id="sPtoType">
-          <option value="">Select type...</option>
-          <option value="PTO">PTO</option>
-          <option value="Holiday">Holiday</option>
-          <option value="Sick">Sick</option>
-          <option value="Personal">Personal</option>
-          <option value="Bereavement">Bereavement</option>
-        </select>
+    <div class="card">
+      <div class="status-row">
+        <span class="status-label">Status</span>
+        <span class="status-badge badge-off" id="statusBadge">Not Clocked In</span>
       </div>
-      <div class="form-group">
-        <label>Start Date</label>
-        <input type="date" id="sPtoStart">
+      <div class="status-row">
+        <span class="status-label">Clocked In</span>
+        <span class="status-value" id="clockInTime">—</span>
       </div>
-      <div class="form-group">
-        <label>End Date</label>
-        <input type="date" id="sPtoEnd">
+      <div class="status-row">
+        <span class="status-label">Break Time</span>
+        <span class="status-value" id="breakTotal">0 min</span>
       </div>
-      <div class="form-group">
-        <label>Total Days</label>
-        <input type="number" id="sPtoDays" min="0.5" step="0.5" placeholder="e.g. 1, 0.5, 3">
+      <div class="status-row">
+        <span class="status-label">Hours Worked</span>
+        <span class="status-value" id="hoursWorked">0.00</span>
       </div>
-      <div class="form-group">
-        <label>Reason (optional)</label>
-        <textarea id="sPtoReason" placeholder="Brief reason..."></textarea>
-      </div>
-      <button class="btn btn-pto" id="sPtoSubmitBtn" onclick="handlePTOSubmit('salaried')">📨 Submit to Christen</button>
+    </div>
+
+    <div class="action-stack" id="actionButtons">
+      <button class="btn btn-clock-in" onclick="handleClockIn()">🕐 Clock In</button>
     </div>
   </div>
 
-  <!-- ═══ CLOCK SUMMARY ═══ -->
+  <!-- SUMMARY -->
   <div id="summaryScreen" class="screen">
     <div class="card">
       <h2>Shift Summary</h2>
@@ -483,23 +194,22 @@
       <div class="status-row"><span class="status-label">Clock In</span><span class="status-value" id="summaryIn">—</span></div>
       <div class="status-row"><span class="status-label">Clock Out</span><span class="status-value" id="summaryOut">—</span></div>
       <div class="status-row"><span class="status-label">Break</span><span class="status-value" id="summaryBreak">—</span></div>
-      <div class="status-row"><span class="status-label">Location</span><span class="status-value" id="summaryLocation">—</span></div>
       <div class="form-group" style="margin-top:12px;">
-        <textarea id="shiftNotes" placeholder="Add any shift notes (optional)..." style="width:100%;padding:14px 16px;border:2px solid var(--cream-dark);border-radius:12px;font-family:'Nunito',sans-serif;font-size:15px;color:var(--text);background:var(--cream);resize:vertical;min-height:80px;"></textarea>
+        <textarea id="shiftNotes" placeholder="Add shift notes (optional)..." style="width:100%;padding:14px;border:2px solid var(--cream-dark);border-radius:12px;font-family:'Nunito',sans-serif;font-size:15px;color:var(--text);background:var(--cream);resize:vertical;min-height:80px;"></textarea>
       </div>
     </div>
     <div class="action-stack">
-      <button class="btn btn-primary" id="btnSubmit" onclick="handleClockSubmit()">✓ Submit Timesheet</button>
-      <button class="btn btn-secondary" onclick="goBackToClock()">← Go Back</button>
+      <button class="btn btn-primary" id="btnSubmit" onclick="handleSubmit()">✓ Submit Timesheet</button>
+      <button class="btn btn-secondary" onclick="goBack()">← Go Back</button>
     </div>
   </div>
 
-  <!-- ═══ SUCCESS ═══ -->
+  <!-- SUCCESS -->
   <div id="successScreen" class="screen">
     <div class="success-screen">
       <div class="success-icon">✅</div>
-      <h2 id="successTitle">Submitted!</h2>
-      <p id="successMsg">Your entry has been recorded.</p>
+      <h2>Time Submitted!</h2>
+      <p id="successMsg">Your hours have been recorded.</p>
       <br><br>
       <button class="btn btn-primary" onclick="handleLogout()">Done</button>
     </div>
@@ -510,482 +220,218 @@
 <div class="toast" id="toast"></div>
 
 <script>
-// ══════════════════════════════════════════
-// CONFIGURATION
-// ══════════════════════════════════════════
+// ════════════════════════════════════════
+// CONFIG — Update these two things only
+// ════════════════════════════════════════
 
-// ⚠️ REPLACE with your deployed Google Apps Script URL
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzbNUaizB9oJkRWo3UShXrNNOLpOJOEL6wTlTdGHKsDDxEdQ5jjYBUGImGwwYWd_10e/exec';
+// ⬇️ PASTE YOUR GOOGLE APPS SCRIPT URL HERE ⬇️
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzaBM9ODdE6rmG77AY1MaTohEmelo265jewe_T4g6d_1jXE2bluy2CCSG18ydHwIEt7Jw/exec';
 
-// ══════════════════════════════════════════
+// Employee list — update when staff changes
+const EMPLOYEES = [
+  { name: 'Courtney Coleman', pin: '7891' },
+  { name: 'Florence Crombecque', pin: '5289' },
+  { name: 'Hailey Voss', pin: '5678' },
+  { name: 'Isabel Arreola', pin: '3456' },
+  { name: 'Jennifer Widder', pin: '2345' },
+  { name: 'Julie Earnest', pin: '1234' },
+];
+
+// ════════════════════════════════════════
 // STATE
-// ══════════════════════════════════════════
-let employees = [];
-let state = {
-  employee: null,
-  type: null,
-  clockedIn: false,
-  onBreak: false,
-  clockInTime: null,
-  clockOutTime: null,
-  breakStartTime: null,
-  totalBreakMs: 0,
-  category: 'Client Sessions',
-  gpsLat: null,
-  gpsLng: null,
-};
+// ════════════════════════════════════════
+let currentEmployee = null;
+let clockInTime = null;
+let clockOutTime = null;
+let onBreak = false;
+let breakStartTime = null;
+let totalBreakMs = 0;
 
-// ══════════════════════════════════════════
+// ════════════════════════════════════════
 // INIT
-// ══════════════════════════════════════════
+// ════════════════════════════════════════
 document.addEventListener('DOMContentLoaded', () => {
-  initGPS();
-  loadEmployees();
-  setInterval(updateLiveClock, 1000);
-  updateLiveClock();
-
+  setInterval(updateClock, 1000);
+  updateClock();
   document.getElementById('pinInput').addEventListener('keyup', (e) => {
     if (e.key === 'Enter') handleLogin();
   });
-
-  // Auto-calculate days from date range
-  ['sPtoStart', 'sPtoEnd'].forEach(id => {
-    document.getElementById(id).addEventListener('change', autoCalcDays);
-  });
 });
 
-async function loadEmployees() {
-  const select = document.getElementById('employeeSelect');
-
-  // Hardcoded employees — matches Employee Master tab
-  // UPDATE THESE when employees change
-  const hardcodedEmployees = [
-    { name: 'Julie Earnest', pin: '1234', type: 'hourly', email: 'julie@treehousetherapies.com' },
-    { name: 'Hailey Voss', pin: '5678', type: 'hourly', email: 'hailey@treehousetherapies.com' },
-    { name: 'Stacey Briscoe', pin: '9123', type: 'salaried', email: 'stacey@treehousetherapies.com' },
-    { name: 'Shannon Redden', pin: '4567', type: 'salaried', email: 'Shannon@treehousetherapies.com' },
-    { name: 'Shawn Diez', pin: '8912', type: 'salaried', email: 'shawn@treehousetherapies.com' },
-    { name: 'Isabel Arreola', pin: '3456', type: 'hourly', email: 'isabel@treehousetherapies.com' },
-    { name: 'Courtney Coleman', pin: '7891', type: 'prn', email: 'courtney@treehousetherapies.com' },
-    { name: 'Jennifer Widder', pin: '2345', type: 'prn', email: 'jennifer@treehousetherapies.com' },
-  ];
-
-  // Try to load from Apps Script first, fall back to hardcoded
-  if (APPS_SCRIPT_URL && APPS_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-    try {
-      const data = await fetchJSONP(`${APPS_SCRIPT_URL}?action=get_employees&type=all`);
-      if (data.status === 'success' && data.employees && data.employees.length > 0) {
-        employees = data.employees;
-        populateEmployeeSelect();
-        console.log('Loaded employees from Apps Script');
-        return;
-      }
-    } catch (e) {
-      console.log('Apps Script unavailable, using hardcoded employees');
-    }
-  }
-
-  // Use hardcoded employees
-  employees = hardcodedEmployees;
-  populateEmployeeSelect();
-}
-
-// JSONP fetch helper — works from local files and cross-origin
-function fetchJSONP(url) {
-  return new Promise((resolve, reject) => {
-    const callbackName = 'jsonpCallback_' + Date.now();
-    const script = document.createElement('script');
-    
-    window[callbackName] = function(data) {
-      resolve(data);
-      delete window[callbackName];
-      document.head.removeChild(script);
-    };
-    
-    script.src = url + '&callback=' + callbackName;
-    script.onerror = function() {
-      reject(new Error('JSONP request failed'));
-      delete window[callbackName];
-      document.head.removeChild(script);
-    };
-    
-    document.head.appendChild(script);
-  });
-}
-
-function populateEmployeeSelect() {
-  const select = document.getElementById('employeeSelect');
-  select.innerHTML = '<option value="">Select your name...</option>';
-  employees.forEach((emp, i) => {
-    const opt = document.createElement('option');
-    opt.value = i;
-    opt.textContent = emp.name;
-    select.appendChild(opt);
-  });
-}
-
-// ══════════════════════════════════════════
-// GPS
-// ══════════════════════════════════════════
-function initGPS() {
-  if (!navigator.geolocation) {
-    updateGPSStatus('error', 'GPS not available');
-    return;
-  }
-  navigator.geolocation.getCurrentPosition(
-    (pos) => {
-      state.gpsLat = pos.coords.latitude.toFixed(6);
-      state.gpsLng = pos.coords.longitude.toFixed(6);
-      updateGPSStatus('locked', 'Location acquired');
-    },
-    () => updateGPSStatus('error', 'Location unavailable'),
-    { enableHighAccuracy: true, timeout: 10000 }
-  );
-}
-
-function updateGPSStatus(status, text) {
-  document.getElementById('gpsDot').className = 'gps-dot ' + status;
-  document.getElementById('gpsText').textContent = text;
-}
-
-// ══════════════════════════════════════════
-// CLOCK
-// ══════════════════════════════════════════
-function updateLiveClock() {
+// ════════════════════════════════════════
+// CLOCK DISPLAY
+// ════════════════════════════════════════
+function updateClock() {
   const now = new Date();
   const el = document.getElementById('liveTime');
   const dl = document.getElementById('liveDate');
   if (el) el.textContent = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true });
   if (dl) dl.textContent = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
 
-  if (state.clockedIn && state.clockInTime) {
-    const elapsed = now - state.clockInTime - state.totalBreakMs - (state.onBreak ? (now - state.breakStartTime) : 0);
-    const hw = document.getElementById('hoursWorked');
-    if (hw) hw.textContent = Math.max(0, elapsed / 3600000).toFixed(2);
+  if (clockInTime) {
+    const breakNow = onBreak ? (now - breakStartTime) : 0;
+    const elapsed = now - clockInTime - totalBreakMs - breakNow;
+    document.getElementById('hoursWorked').textContent = Math.max(0, elapsed / 3600000).toFixed(2);
   }
 }
 
-// ══════════════════════════════════════════
-// NAV
-// ══════════════════════════════════════════
+// ════════════════════════════════════════
+// SCREENS
+// ════════════════════════════════════════
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
-function showHourlyTab(tab) {
-  document.getElementById('tabClock').classList.toggle('active', tab === 'clock');
-  document.getElementById('tabPTO').classList.toggle('active', tab === 'pto');
-  document.getElementById('hourlyClockTab').style.display = tab === 'clock' ? 'block' : 'none';
-  document.getElementById('hourlyPTOTab').style.display = tab === 'pto' ? 'block' : 'none';
-
-  if (tab === 'pto') buildHourlyPTOForm();
-}
-
-function showToast(msg, type = 'error', duration = 3000) {
+function showToast(msg, type = 'error') {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.className = 'toast show' + (type === 'success' ? ' success' : '');
-  setTimeout(() => t.className = 'toast', duration);
+  setTimeout(() => t.className = 'toast', 3000);
 }
 
-// ══════════════════════════════════════════
+// ════════════════════════════════════════
 // LOGIN / LOGOUT
-// ══════════════════════════════════════════
+// ════════════════════════════════════════
 function handleLogin() {
   const idx = document.getElementById('employeeSelect').value;
   const pin = document.getElementById('pinInput').value;
-
   if (idx === '') { showToast('Please select your name'); return; }
   if (!pin) { showToast('Please enter your PIN'); return; }
 
-  const emp = employees[parseInt(idx)];
+  const emp = EMPLOYEES[parseInt(idx)];
   if (emp.pin !== pin) { showToast('Incorrect PIN'); return; }
 
-  state.employee = emp;
-  state.type = emp.type;
-
+  currentEmployee = emp.name;
   const dateStr = new Date().toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-  const firstName = emp.name.split(' ')[0];
-
-  if (emp.type === 'hourly') {
-    document.getElementById('hWelcomeName').textContent = 'Hi, ' + firstName + '!';
-    document.getElementById('hWelcomeDate').textContent = dateStr;
-    // Show both time clock and PTO tab
-    document.getElementById('tabPTO').style.display = '';
-    showScreen('hourlyScreen');
-  } else if (emp.type === 'prn') {
-    document.getElementById('hWelcomeName').textContent = 'Hi, ' + firstName + '!';
-    document.getElementById('hWelcomeDate').textContent = dateStr;
-    // PRN: time clock only, no PTO tab
-    document.getElementById('tabPTO').style.display = 'none';
-    showScreen('hourlyScreen');
-  } else {
-    document.getElementById('sWelcomeName').textContent = 'Hi, ' + firstName + '!';
-    document.getElementById('sWelcomeDate').textContent = dateStr;
-    loadPTOBalances(emp.name);
-    showScreen('salariedScreen');
-  }
+  document.getElementById('welcomeName').textContent = 'Hi, ' + emp.name.split(' ')[0] + '!';
+  document.getElementById('welcomeDate').textContent = dateStr;
+  showScreen('clockScreen');
 }
 
 function handleLogout() {
-  state = {
-    employee: null, type: null,
-    clockedIn: false, onBreak: false,
-    clockInTime: null, clockOutTime: null,
-    breakStartTime: null, totalBreakMs: 0,
-    category: 'Client Sessions',
-    gpsLat: state.gpsLat, gpsLng: state.gpsLng,
-  };
+  currentEmployee = null;
+  clockInTime = null;
+  clockOutTime = null;
+  onBreak = false;
+  breakStartTime = null;
+  totalBreakMs = 0;
   document.getElementById('employeeSelect').value = '';
   document.getElementById('pinInput').value = '';
   document.getElementById('hoursWorked').textContent = '0.00';
   document.getElementById('clockInTime').textContent = '—';
   document.getElementById('breakTotal').textContent = '0 min';
-  updateStatusBadge('off');
-  renderActionButtons();
+  updateBadge('off');
+  renderButtons();
   showScreen('loginScreen');
 }
 
-// ══════════════════════════════════════════
-// TIME CLOCK ACTIONS
-// ══════════════════════════════════════════
+// ════════════════════════════════════════
+// CLOCK ACTIONS
+// ════════════════════════════════════════
 function handleClockIn() {
-  state.clockInTime = new Date();
-  state.clockedIn = true;
-  state.totalBreakMs = 0;
-  document.getElementById('clockInTime').textContent = formatTime(state.clockInTime);
-  updateStatusBadge('clocked-in');
-  renderActionButtons();
+  clockInTime = new Date();
+  totalBreakMs = 0;
+  document.getElementById('clockInTime').textContent = formatTime(clockInTime);
+  updateBadge('clocked-in');
+  renderButtons();
 }
 
 function handleBreak() {
-  if (!state.onBreak) {
-    state.onBreak = true;
-    state.breakStartTime = new Date();
-    updateStatusBadge('on-break');
+  if (!onBreak) {
+    onBreak = true;
+    breakStartTime = new Date();
+    updateBadge('on-break');
   } else {
-    state.onBreak = false;
-    state.totalBreakMs += (new Date() - state.breakStartTime);
-    state.breakStartTime = null;
-    updateStatusBadge('clocked-in');
+    onBreak = false;
+    totalBreakMs += (new Date() - breakStartTime);
+    breakStartTime = null;
+    updateBadge('clocked-in');
   }
-  document.getElementById('breakTotal').textContent = formatBreakTime();
-  renderActionButtons();
+  document.getElementById('breakTotal').textContent = getBreakMin() + ' min';
+  renderButtons();
 }
 
 function handleClockOut() {
-  if (state.onBreak) {
-    state.totalBreakMs += (new Date() - state.breakStartTime);
-    state.onBreak = false;
-    state.breakStartTime = null;
+  if (onBreak) {
+    totalBreakMs += (new Date() - breakStartTime);
+    onBreak = false;
+    breakStartTime = null;
   }
-  state.clockOutTime = new Date();
-  state.clockedIn = false;
+  clockOutTime = new Date();
+  const totalMs = clockOutTime - clockInTime - totalBreakMs;
+  const hours = Math.max(0, totalMs / 3600000);
 
-  const totalMs = state.clockOutTime - state.clockInTime - state.totalBreakMs;
-  const totalHours = Math.max(0, totalMs / 3600000);
-
-  document.getElementById('summaryHours').textContent = totalHours.toFixed(2);
-  document.getElementById('summaryIn').textContent = formatTime(state.clockInTime);
-  document.getElementById('summaryOut').textContent = formatTime(state.clockOutTime);
-  document.getElementById('summaryBreak').textContent = formatBreakTime();
-  document.getElementById('summaryLocation').textContent = state.gpsLat ? `${state.gpsLat}, ${state.gpsLng}` : 'Not available';
+  document.getElementById('summaryHours').textContent = hours.toFixed(2);
+  document.getElementById('summaryIn').textContent = formatTime(clockInTime);
+  document.getElementById('summaryOut').textContent = formatTime(clockOutTime);
+  document.getElementById('summaryBreak').textContent = getBreakMin() + ' min';
   document.getElementById('shiftNotes').value = '';
-
   showScreen('summaryScreen');
 }
 
-function goBackToClock() {
-  state.clockOutTime = null;
-  state.clockedIn = true;
-  updateStatusBadge('clocked-in');
-  renderActionButtons();
-  showScreen('hourlyScreen');
+function goBack() {
+  clockOutTime = null;
+  updateBadge('clocked-in');
+  renderButtons();
+  showScreen('clockScreen');
 }
 
-async function handleClockSubmit() {
+// ════════════════════════════════════════
+// SUBMIT
+// ════════════════════════════════════════
+async function handleSubmit() {
   const btn = document.getElementById('btnSubmit');
   btn.disabled = true;
   btn.innerHTML = '<span class="spinner"></span> Submitting...';
 
-  const totalMs = state.clockOutTime - state.clockInTime - state.totalBreakMs;
-  const totalHours = Math.max(0, totalMs / 3600000);
+  const totalMs = clockOutTime - clockInTime - totalBreakMs;
+  const hours = Math.max(0, totalMs / 3600000);
 
   const payload = {
-    action: 'clock_submit',
-    employee: state.employee.name,
-    date: state.clockInTime.toLocaleDateString('en-US'),
-    clockIn: formatTime(state.clockInTime),
-    clockOut: formatTime(state.clockOutTime),
-    breakMinutes: Math.round(state.totalBreakMs / 60000),
-    totalHours: parseFloat(totalHours.toFixed(2)),
-    category: '',
-    gpsLat: state.gpsLat || '',
-    gpsLng: state.gpsLng || '',
-    notes: document.getElementById('shiftNotes').value.trim(),
-    timestamp: new Date().toISOString()
+    employee: currentEmployee,
+    date: clockInTime.toLocaleDateString('en-US'),
+    clockIn: formatTime(clockInTime),
+    clockOut: formatTime(clockOutTime),
+    breakMinutes: Math.round(totalBreakMs / 60000),
+    totalHours: parseFloat(hours.toFixed(2)),
+    notes: document.getElementById('shiftNotes').value.trim()
   };
 
   try {
-    if (APPS_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-      await fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-    } else {
-      console.log('⏱️ TIME ENTRY (Demo):', payload);
-    }
-    document.getElementById('successTitle').textContent = 'Time Submitted!';
-    document.getElementById('successMsg').textContent = `${totalHours.toFixed(2)} hours recorded for ${payload.date}.`;
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
+      body: JSON.stringify(payload)
+    });
+
+    document.getElementById('successMsg').textContent = hours.toFixed(2) + ' hours recorded for ' + payload.date;
     showScreen('successScreen');
   } catch (err) {
-    showToast('Error submitting. Please try again.');
+    showToast('Error submitting. Try again.');
     btn.disabled = false;
     btn.innerHTML = '✓ Submit Timesheet';
   }
 }
 
-// ══════════════════════════════════════════
-// PTO REQUESTS
-// ══════════════════════════════════════════
-function buildHourlyPTOForm() {
-  const container = document.getElementById('hPtoForm');
-  container.innerHTML = `
-    <h2>Request Time Off</h2>
-    <div class="form-group">
-      <label>Type</label>
-      <select id="hPtoType">
-        <option value="">Select type...</option>
-        <option value="PTO">PTO</option>
-        <option value="Holiday">Holiday</option>
-        <option value="Sick">Sick</option>
-        <option value="Personal">Personal</option>
-        <option value="Bereavement">Bereavement</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label>Start Date</label>
-      <input type="date" id="hPtoStart">
-    </div>
-    <div class="form-group">
-      <label>End Date</label>
-      <input type="date" id="hPtoEnd">
-    </div>
-    <div class="form-group">
-      <label>Total Days</label>
-      <input type="number" id="hPtoDays" min="0.5" step="0.5" placeholder="e.g. 1, 0.5, 3">
-    </div>
-    <div class="form-group">
-      <label>Reason (optional)</label>
-      <textarea id="hPtoReason" placeholder="Brief reason..."></textarea>
-    </div>
-    <button class="btn btn-pto" id="hPtoSubmitBtn" onclick="handlePTOSubmit('hourly')">📨 Submit Request</button>
-  `;
-}
-
-async function handlePTOSubmit(source) {
-  const prefix = source === 'salaried' ? 's' : 'h';
-  const type = document.getElementById(prefix + 'PtoType').value;
-  const start = document.getElementById(prefix + 'PtoStart').value;
-  const end = document.getElementById(prefix + 'PtoEnd').value;
-  const days = document.getElementById(prefix + 'PtoDays').value;
-  const reason = document.getElementById(prefix + 'PtoReason').value;
-
-  if (!type) { showToast('Please select a time off type'); return; }
-  if (!start) { showToast('Please select a start date'); return; }
-  if (!end) { showToast('Please select an end date'); return; }
-  if (!days) { showToast('Please enter total days'); return; }
-
-  const btn = document.getElementById(prefix + 'PtoSubmitBtn');
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Submitting...';
-
-  const payload = {
-    action: 'pto_submit',
-    employee: state.employee.name,
-    email: state.employee.email || '',
-    requestType: type,
-    startDate: start,
-    endDate: end,
-    totalDays: parseFloat(days),
-    reason: reason.trim(),
-    timestamp: new Date().toISOString()
-  };
-
-  try {
-    if (APPS_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-      await fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-    } else {
-      console.log('📋 PTO REQUEST (Demo):', payload);
-    }
-    document.getElementById('successTitle').textContent = 'Request Submitted!';
-    document.getElementById('successMsg').textContent = `Your ${type} request for ${days} day(s) has been sent to Christen for approval.`;
-    showScreen('successScreen');
-  } catch (err) {
-    showToast('Error submitting. Please try again.');
-    btn.disabled = false;
-    btn.innerHTML = '📨 Submit Request';
-  }
-}
-
-async function loadPTOBalances(name) {
-  try {
-    const data = await fetchJSONP(`${APPS_SCRIPT_URL}?action=get_pto_balances&employee=${encodeURIComponent(name)}`);
-    if (data.status === 'success') {
-      document.getElementById('balPTO').textContent = data.balances.ptoRemaining;
-      document.getElementById('balSick').textContent = data.balances.sickRemaining;
-    }
-  } catch (e) {
-    console.error('Failed to load PTO balances:', e);
-    document.getElementById('balPTO').textContent = '—';
-    document.getElementById('balSick').textContent = '—';
-  }
-}
-
-function autoCalcDays() {
-  const startEl = document.getElementById('sPtoStart');
-  const endEl = document.getElementById('sPtoEnd');
-  const daysEl = document.getElementById('sPtoDays');
-  if (startEl.value && endEl.value) {
-    const start = new Date(startEl.value);
-    const end = new Date(endEl.value);
-    let count = 0;
-    const curr = new Date(start);
-    while (curr <= end) {
-      const day = curr.getDay();
-      if (day !== 0 && day !== 6) count++;
-      curr.setDate(curr.getDate() + 1);
-    }
-    daysEl.value = count;
-  }
-}
-
-// ══════════════════════════════════════════
-// UI HELPERS
-// ══════════════════════════════════════════
-function renderActionButtons() {
+// ════════════════════════════════════════
+// HELPERS
+// ════════════════════════════════════════
+function renderButtons() {
   const c = document.getElementById('actionButtons');
-  if (!state.clockedIn) {
+  if (!clockInTime || clockOutTime) {
     c.innerHTML = '<button class="btn btn-clock-in" onclick="handleClockIn()">🕐 Clock In</button>';
   } else {
-    const bLabel = state.onBreak ? '☕ End Break' : '☕ Start Break';
-    const bClass = state.onBreak ? 'btn-break on-break' : 'btn-break';
-    c.innerHTML = `
-      <button class="btn ${bClass}" onclick="handleBreak()">${bLabel}</button>
-      <button class="btn btn-clock-out" onclick="handleClockOut()" ${state.onBreak ? 'disabled' : ''}>🔴 Clock Out</button>
-    `;
+    const bLabel = onBreak ? '☕ End Break' : '☕ Start Break';
+    const bClass = onBreak ? 'btn-break on-break' : 'btn-break';
+    c.innerHTML =
+      '<button class="btn ' + bClass + '" onclick="handleBreak()">' + bLabel + '</button>' +
+      '<button class="btn btn-clock-out" onclick="handleClockOut()"' + (onBreak ? ' disabled' : '') + '>🔴 Clock Out</button>';
   }
 }
 
-function updateStatusBadge(status) {
+function updateBadge(status) {
   const b = document.getElementById('statusBadge');
   b.className = 'status-badge';
   if (status === 'clocked-in') { b.classList.add('badge-clocked-in'); b.textContent = 'Clocked In'; }
@@ -995,12 +441,11 @@ function updateStatusBadge(status) {
 
 function formatTime(d) { return d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }); }
 
-function formatBreakTime() {
-  let ms = state.totalBreakMs;
-  if (state.onBreak && state.breakStartTime) ms += (new Date() - state.breakStartTime);
-  return Math.round(ms / 60000) + ' min';
+function getBreakMin() {
+  let ms = totalBreakMs;
+  if (onBreak && breakStartTime) ms += (new Date() - breakStartTime);
+  return Math.round(ms / 60000);
 }
 </script>
-
 </body>
 </html>
